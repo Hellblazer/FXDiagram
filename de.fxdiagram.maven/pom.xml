@@ -26,7 +26,7 @@
 		<module>../de.fxdiagram.eclipse.pde</module>
 		<module>../de.fxdiagram.eclipse.xtext</module>
 		<module>../de.fxdiagram.noeclipse</module>
-		<module>../../JavaFX-SWT-Gesture-Bridge/de.fxdiagram.swtfx</module>
+		<module>../de.fxdiagram.swtfx</module>
 		<module>../de.fxdiagram.xtext.domainmodel</module>
 		<module>../de.fxdiagram.xtext.fowlerdsl</module>
 		<module>../de.fxdiagram.xtext.xbase</module>
