@@ -6,23 +6,16 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
-import de.fxdiagram.annotations.properties.ModelNode;
-import de.fxdiagram.core.model.DomainObjectDescriptor;
-import de.fxdiagram.core.model.DomainObjectProvider;
-import de.fxdiagram.core.model.ModelElementImpl;
-import de.fxdiagram.core.model.ToString;
 import de.fxdiagram.examples.lcars.LcarsConnectionDescriptor;
 import de.fxdiagram.examples.lcars.LcarsEntryDescriptor;
 import java.util.List;
-import org.bson.types.ObjectId;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
-@ModelNode
-@SuppressWarnings("all")
-public class LcarsModelProvider implements DomainObjectProvider {
+/* @ModelNode */@SuppressWarnings("all")
+public class LcarsModelProvider /* implements DomainObjectProvider  */{
   private DB db;
   
   private DBCollection lcars;
@@ -50,14 +43,8 @@ public class LcarsModelProvider implements DomainObjectProvider {
   }
   
   public <T extends Object> DBObject resolveDomainObject(final LcarsEntryDescriptor descriptor) {
-    BasicDBObject _basicDBObject = new BasicDBObject();
-    final Procedure1<BasicDBObject> _function = (BasicDBObject it) -> {
-      String _id = descriptor.getId();
-      ObjectId _objectId = new ObjectId(_id);
-      it.put("_id", _objectId);
-    };
-    BasicDBObject _doubleArrow = ObjectExtensions.<BasicDBObject>operator_doubleArrow(_basicDBObject, _function);
-    return this.lcars.findOne(_doubleArrow);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field id is undefined for the type LcarsEntryDescriptor");
   }
   
   public boolean canConnect() {
@@ -74,7 +61,7 @@ public class LcarsModelProvider implements DomainObjectProvider {
   }
   
   @Override
-  public DomainObjectDescriptor createDescriptor(final Object it) {
+  public Object createDescriptor(final Object it) {
     boolean _matched = false;
     if (!_matched) {
       if (it instanceof DBObject) {
@@ -101,13 +88,5 @@ public class LcarsModelProvider implements DomainObjectProvider {
   
   public LcarsConnectionDescriptor createLcarsConnectionDescriptor(final String fieldName) {
     return new LcarsConnectionDescriptor(fieldName, this);
-  }
-  
-  public void populate(final ModelElementImpl modelElement) {
-    
-  }
-  
-  public String toString() {
-    return ToString.toString(this);
   }
 }

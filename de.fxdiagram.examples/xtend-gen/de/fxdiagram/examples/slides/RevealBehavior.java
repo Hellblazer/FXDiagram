@@ -1,34 +1,36 @@
 package de.fxdiagram.examples.slides;
 
-import de.fxdiagram.core.behavior.AbstractHostBehavior;
-import de.fxdiagram.core.behavior.Behavior;
-import de.fxdiagram.core.behavior.NavigationBehavior;
 import de.fxdiagram.examples.slides.ClickThroughSlide;
 
 @SuppressWarnings("all")
-public class RevealBehavior extends AbstractHostBehavior<ClickThroughSlide> implements NavigationBehavior {
+public class RevealBehavior /* implements AbstractHostBehavior<ClickThroughSlide>, NavigationBehavior  */{
   public RevealBehavior(final ClickThroughSlide slide) {
-    super(slide);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method super(ClickThroughSlide) is undefined");
   }
   
   @Override
-  protected void doActivate() {
+  protected Object doActivate() {
+    return null;
   }
   
   @Override
-  public Class<? extends Behavior> getBehaviorKey() {
-    return NavigationBehavior.class;
+  public Object getBehaviorKey() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field NavigationBehavior is undefined");
   }
   
   @Override
-  public boolean next() {
-    ClickThroughSlide _host = this.getHost();
-    return _host.next();
+  public Object next() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\nnext cannot be resolved");
   }
   
   @Override
-  public boolean previous() {
-    ClickThroughSlide _host = this.getHost();
-    return _host.previous();
+  public Object previous() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\nprevious cannot be resolved");
   }
 }

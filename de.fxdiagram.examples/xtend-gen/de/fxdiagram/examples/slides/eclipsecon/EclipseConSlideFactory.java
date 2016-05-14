@@ -1,12 +1,7 @@
 package de.fxdiagram.examples.slides.eclipsecon;
 
-import de.fxdiagram.core.services.ImageCache;
 import de.fxdiagram.examples.slides.ClickThroughSlide;
 import de.fxdiagram.examples.slides.Slide;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -17,32 +12,17 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 @SuppressWarnings("all")
 public class EclipseConSlideFactory {
   public static Slide createSlide(final String slideName) {
-    Image _backgroundImage = EclipseConSlideFactory.getBackgroundImage();
-    Slide _slide = new Slide(slideName, _backgroundImage);
-    final Procedure1<Slide> _function = (Slide it) -> {
-      it.initializeGraphics();
-    };
-    return ObjectExtensions.<Slide>operator_doubleArrow(_slide, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field initializeGraphics is undefined");
   }
   
   public static Slide createSlide(final String text, final int fontSize) {
-    Image _backgroundImage = EclipseConSlideFactory.getBackgroundImage();
-    Slide _slide = new Slide(text, _backgroundImage);
-    final Procedure1<Slide> _function = (Slide it) -> {
-      it.initializeGraphics();
-      StackPane _stackPane = it.getStackPane();
-      final Procedure1<StackPane> _function_1 = (StackPane it_1) -> {
-        ObservableList<Node> _children = it_1.getChildren();
-        Text _createText = EclipseConSlideFactory.createText(text, fontSize);
-        _children.add(_createText);
-      };
-      ObjectExtensions.<StackPane>operator_doubleArrow(_stackPane, _function_1);
-    };
-    return ObjectExtensions.<Slide>operator_doubleArrow(_slide, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field initializeGraphics is undefined");
   }
   
   public static ClickThroughSlide createClickThroughSlide(final String slideName) {
-    Image _backgroundImage = EclipseConSlideFactory.getBackgroundImage();
+    Object _backgroundImage = EclipseConSlideFactory.getBackgroundImage();
     ClickThroughSlide _clickThroughSlide = new ClickThroughSlide(slideName, _backgroundImage);
     final Procedure1<ClickThroughSlide> _function = (ClickThroughSlide it) -> {
       it.initializeGraphics();
@@ -50,9 +30,11 @@ public class EclipseConSlideFactory {
     return ObjectExtensions.<ClickThroughSlide>operator_doubleArrow(_clickThroughSlide, _function);
   }
   
-  public static Image getBackgroundImage() {
-    ImageCache _get = ImageCache.get();
-    return _get.getImage(EclipseConSlideFactory.class, "images/jungle.jpg");
+  public static Object getBackgroundImage() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field ImageCache is undefined"
+      + "\nget cannot be resolved"
+      + "\ngetImage cannot be resolved");
   }
   
   public static Text createText(final String text, final int fontSize) {

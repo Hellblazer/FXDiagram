@@ -1,34 +1,36 @@
 package de.fxdiagram.examples.slides;
 
-import de.fxdiagram.core.behavior.AbstractHostBehavior;
-import de.fxdiagram.core.behavior.Behavior;
-import de.fxdiagram.core.behavior.NavigationBehavior;
 import de.fxdiagram.examples.slides.SlideDiagram;
 
 @SuppressWarnings("all")
-public class SlideNavigation extends AbstractHostBehavior<SlideDiagram> implements NavigationBehavior {
+public class SlideNavigation /* implements AbstractHostBehavior<SlideDiagram>, NavigationBehavior  */{
   public SlideNavigation(final SlideDiagram host) {
-    super(host);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method super(SlideDiagram) is undefined");
   }
   
   @Override
-  protected void doActivate() {
+  protected Object doActivate() {
+    return null;
   }
   
   @Override
-  public Class<? extends Behavior> getBehaviorKey() {
-    return NavigationBehavior.class;
+  public Object getBehaviorKey() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field NavigationBehavior is undefined");
   }
   
   @Override
-  public boolean next() {
-    SlideDiagram _host = this.getHost();
-    return _host.next();
+  public Object next() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\nnext cannot be resolved");
   }
   
   @Override
-  public boolean previous() {
-    SlideDiagram _host = this.getHost();
-    return _host.previous();
+  public Object previous() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\nprevious cannot be resolved");
   }
 }

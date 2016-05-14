@@ -1,117 +1,77 @@
 package de.fxdiagram.examples.java;
 
-import de.fxdiagram.core.XConnection;
-import de.fxdiagram.core.XConnectionLabel;
-import de.fxdiagram.core.XNode;
-import de.fxdiagram.core.XRoot;
-import de.fxdiagram.core.anchors.LineArrowHead;
-import de.fxdiagram.core.extensions.ButtonExtensions;
-import de.fxdiagram.core.extensions.CoreExtensions;
-import de.fxdiagram.core.model.DomainObjectDescriptor;
-import de.fxdiagram.examples.java.JavaModelProvider;
 import de.fxdiagram.examples.java.JavaProperty;
 import de.fxdiagram.examples.java.JavaPropertyDescriptor;
-import de.fxdiagram.examples.java.JavaTypeDescriptor;
-import de.fxdiagram.examples.java.JavaTypeModel;
 import de.fxdiagram.examples.java.JavaTypeNode;
-import de.fxdiagram.lib.buttons.RapidButton;
-import de.fxdiagram.lib.buttons.RapidButtonAction;
-import de.fxdiagram.lib.chooser.CarusselChoice;
-import de.fxdiagram.lib.chooser.ChooserConnectionProvider;
-import de.fxdiagram.lib.chooser.ConnectedNodeChooser;
-import de.fxdiagram.lib.model.AbstractConnectionRapidButtonBehavior;
-import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.function.Consumer;
-import javafx.geometry.Side;
-import javafx.scene.shape.SVGPath;
-import javafx.scene.text.Text;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.ObjectExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
-public class AddReferenceRapidButtonBehavior extends AbstractConnectionRapidButtonBehavior<JavaTypeNode, JavaProperty, JavaPropertyDescriptor> {
+public class AddReferenceRapidButtonBehavior /* implements AbstractConnectionRapidButtonBehavior<JavaTypeNode, JavaProperty, JavaPropertyDescriptor>  */{
   public AddReferenceRapidButtonBehavior(final JavaTypeNode host) {
-    super(host);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method super(JavaTypeNode) is undefined");
   }
   
   @Override
-  protected Iterable<JavaProperty> getInitialModelChoices() {
-    JavaTypeNode _host = this.getHost();
-    JavaTypeModel _javaTypeModel = _host.getJavaTypeModel();
-    return _javaTypeModel.getReferences();
+  protected Object getInitialModelChoices() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\njavaTypeModel cannot be resolved"
+      + "\nreferences cannot be resolved");
   }
   
   @Override
-  protected JavaPropertyDescriptor getChoiceKey(final JavaProperty property) {
-    JavaModelProvider _domainObjectProvider = this.getDomainObjectProvider();
-    return _domainObjectProvider.createJavaPropertyDescriptor(property);
+  protected Object getChoiceKey(final JavaProperty property) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ncreateJavaPropertyDescriptor cannot be resolved");
   }
   
   @Override
-  protected XNode createNode(final JavaPropertyDescriptor key) {
-    JavaModelProvider _domainObjectProvider = this.getDomainObjectProvider();
-    JavaProperty _domainObject = key.getDomainObject();
-    Class<?> _type = _domainObject.getType();
-    JavaTypeDescriptor _createJavaTypeDescriptor = _domainObjectProvider.createJavaTypeDescriptor(_type);
-    return new JavaTypeNode(_createJavaTypeDescriptor);
+  protected JavaTypeNode createNode(final JavaPropertyDescriptor key) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field domainObject is undefined for the type JavaPropertyDescriptor"
+      + "\ncreateJavaTypeDescriptor cannot be resolved"
+      + "\ntype cannot be resolved");
   }
   
-  protected JavaModelProvider getDomainObjectProvider() {
-    JavaTypeNode _host = this.getHost();
-    XRoot _root = CoreExtensions.getRoot(_host);
-    return _root.<JavaModelProvider>getDomainObjectProvider(JavaModelProvider.class);
-  }
-  
-  @Override
-  protected ConnectedNodeChooser createChooser(final RapidButton button, final Set<JavaPropertyDescriptor> availableChoiceKeys, final Set<JavaPropertyDescriptor> unavailableChoiceKeys) {
-    ConnectedNodeChooser _xblockexpression = null;
-    {
-      JavaTypeNode _host = this.getHost();
-      Side _position = button.getPosition();
-      CarusselChoice _carusselChoice = new CarusselChoice();
-      final ConnectedNodeChooser chooser = new ConnectedNodeChooser(_host, _position, _carusselChoice);
-      final Consumer<JavaPropertyDescriptor> _function = (JavaPropertyDescriptor it) -> {
-        XNode _createNode = this.createNode(it);
-        chooser.addChoice(_createNode, it);
-      };
-      availableChoiceKeys.forEach(_function);
-      final ChooserConnectionProvider _function_1 = (XNode host, XNode choice, DomainObjectDescriptor choiceInfo) -> {
-        XConnection _xblockexpression_1 = null;
-        {
-          final JavaPropertyDescriptor reference = ((JavaPropertyDescriptor) choiceInfo);
-          XConnection _xConnection = new XConnection(host, choice, reference);
-          final Procedure1<XConnection> _function_2 = (XConnection it) -> {
-            LineArrowHead _lineArrowHead = new LineArrowHead(it, false);
-            it.setTargetArrowHead(_lineArrowHead);
-            XConnectionLabel _xConnectionLabel = new XConnectionLabel(it);
-            final Procedure1<XConnectionLabel> _function_3 = (XConnectionLabel it_1) -> {
-              Text _text = it_1.getText();
-              JavaProperty _domainObject = reference.getDomainObject();
-              String _name = _domainObject.getName();
-              _text.setText(_name);
-            };
-            ObjectExtensions.<XConnectionLabel>operator_doubleArrow(_xConnectionLabel, _function_3);
-          };
-          _xblockexpression_1 = ObjectExtensions.<XConnection>operator_doubleArrow(_xConnection, _function_2);
-        }
-        return _xblockexpression_1;
-      };
-      chooser.setConnectionProvider(_function_1);
-      _xblockexpression = chooser;
-    }
-    return _xblockexpression;
+  protected Object getDomainObjectProvider() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field host is undefined"
+      + "\nroot cannot be resolved"
+      + "\ngetDomainObjectProvider cannot be resolved");
   }
   
   @Override
-  protected Iterable<RapidButton> createButtons(final RapidButtonAction addConnectionAction) {
-    JavaTypeNode _host = this.getHost();
-    SVGPath _arrowButton = ButtonExtensions.getArrowButton(Side.LEFT, "Discover properties");
-    RapidButton _rapidButton = new RapidButton(_host, Side.LEFT, _arrowButton, addConnectionAction);
-    JavaTypeNode _host_1 = this.getHost();
-    SVGPath _arrowButton_1 = ButtonExtensions.getArrowButton(Side.RIGHT, "Discover properties");
-    RapidButton _rapidButton_1 = new RapidButton(_host_1, Side.RIGHT, _arrowButton_1, addConnectionAction);
-    return Collections.<RapidButton>unmodifiableList(CollectionLiterals.<RapidButton>newArrayList(_rapidButton, _rapidButton_1));
+  protected Object createChooser(final /* RapidButton */Object button, final Set<JavaPropertyDescriptor> availableChoiceKeys, final Set<JavaPropertyDescriptor> unavailableChoiceKeys) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nConnectedNodeChooser cannot be resolved."
+      + "\nThe method or field host is undefined"
+      + "\nCarusselChoice cannot be resolved."
+      + "\nXConnection cannot be resolved."
+      + "\nThe method targetArrowHead(Object) is undefined"
+      + "\nLineArrowHead cannot be resolved."
+      + "\nXConnectionLabel cannot be resolved."
+      + "\nThe method or field text is undefined"
+      + "\nThe method or field domainObject is undefined for the type JavaPropertyDescriptor"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nposition cannot be resolved"
+      + "\naddChoice cannot be resolved"
+      + "\nconnectionProvider cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\n=> cannot be resolved"
+      + "\ntext cannot be resolved"
+      + "\nname cannot be resolved");
+  }
+  
+  @Override
+  protected /* List<Object> */Object createButtons(final /* RapidButtonAction */Object addConnectionAction) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nRapidButton cannot be resolved."
+      + "\nThe method or field host is undefined"
+      + "\nThe method getArrowButton(Side, String) is undefined"
+      + "\nRapidButton cannot be resolved."
+      + "\nThe method or field host is undefined"
+      + "\nThe method getArrowButton(Side, String) is undefined");
   }
 }

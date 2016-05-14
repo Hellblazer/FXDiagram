@@ -1,12 +1,10 @@
 package de.fxdiagram.examples.slides.democamp;
 
-import de.fxdiagram.core.services.ImageCache;
 import de.fxdiagram.examples.lcars.LcarsExtensions;
 import de.fxdiagram.examples.slides.ClickThroughSlide;
 import de.fxdiagram.examples.slides.Slide;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -18,12 +16,12 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 @SuppressWarnings("all")
 public class DemoCampSlideFactory {
   public static Slide createSlide(final String slideName) {
-    Image _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
+    Object _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
     return new Slide(slideName, _backgroundImage);
   }
   
   public static Slide createSlideWithText(final String slideName, final String text, final int fontSize) {
-    Image _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
+    Object _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
     Slide _slide = new Slide(slideName, _backgroundImage);
     final Procedure1<Slide> _function = (Slide it) -> {
       StackPane _stackPane = it.getStackPane();
@@ -40,7 +38,7 @@ public class DemoCampSlideFactory {
   }
   
   public static ClickThroughSlide createClickThroughSlide(final String slideName) {
-    Image _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
+    Object _backgroundImage = DemoCampSlideFactory.getBackgroundImage();
     ClickThroughSlide _clickThroughSlide = new ClickThroughSlide(slideName, _backgroundImage);
     final Procedure1<ClickThroughSlide> _function = (ClickThroughSlide it) -> {
       it.initializeGraphics();
@@ -68,8 +66,10 @@ public class DemoCampSlideFactory {
     return Color.rgb(156, 124, 114);
   }
   
-  public static Image getBackgroundImage() {
-    ImageCache _get = ImageCache.get();
-    return _get.getImage(DemoCampSlideFactory.class, "images/planet.jpg");
+  public static Object getBackgroundImage() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field ImageCache is undefined"
+      + "\nget cannot be resolved"
+      + "\ngetImage cannot be resolved");
   }
 }

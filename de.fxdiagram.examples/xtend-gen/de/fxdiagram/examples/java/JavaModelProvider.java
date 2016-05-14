@@ -1,21 +1,15 @@
 package de.fxdiagram.examples.java;
 
-import de.fxdiagram.annotations.properties.ModelNode;
-import de.fxdiagram.core.model.DomainObjectDescriptor;
-import de.fxdiagram.core.model.DomainObjectProvider;
-import de.fxdiagram.core.model.ModelElementImpl;
-import de.fxdiagram.core.model.ToString;
 import de.fxdiagram.examples.java.JavaProperty;
 import de.fxdiagram.examples.java.JavaPropertyDescriptor;
 import de.fxdiagram.examples.java.JavaSuperTypeDescriptor;
 import de.fxdiagram.examples.java.JavaSuperTypeHandle;
 import de.fxdiagram.examples.java.JavaTypeDescriptor;
 
-@ModelNode
-@SuppressWarnings("all")
-public class JavaModelProvider implements DomainObjectProvider {
+/* @ModelNode */@SuppressWarnings("all")
+public class JavaModelProvider /* implements DomainObjectProvider  */{
   @Override
-  public DomainObjectDescriptor createDescriptor(final Object domainObject) {
+  public Object createDescriptor(final Object domainObject) {
     boolean _matched = false;
     if (!_matched) {
       if (domainObject instanceof Class) {
@@ -48,13 +42,5 @@ public class JavaModelProvider implements DomainObjectProvider {
   
   public JavaTypeDescriptor createJavaTypeDescriptor(final Class<?> clazz) {
     return new JavaTypeDescriptor(clazz, this);
-  }
-  
-  public void populate(final ModelElementImpl modelElement) {
-    
-  }
-  
-  public String toString() {
-    return ToString.toString(this);
   }
 }

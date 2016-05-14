@@ -1,10 +1,5 @@
 package de.fxdiagram.examples.ecore;
 
-import de.fxdiagram.annotations.properties.ModelNode;
-import de.fxdiagram.core.model.DomainObjectDescriptor;
-import de.fxdiagram.core.model.DomainObjectProvider;
-import de.fxdiagram.core.model.ModelElementImpl;
-import de.fxdiagram.core.model.ToString;
 import de.fxdiagram.examples.ecore.EClassDescriptor;
 import de.fxdiagram.examples.ecore.EReferenceDescriptor;
 import de.fxdiagram.examples.ecore.ESuperTypeDescriptor;
@@ -16,11 +11,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-@ModelNode
-@SuppressWarnings("all")
-public class EcoreDomainObjectProvider implements DomainObjectProvider {
+/* @ModelNode */@SuppressWarnings("all")
+public class EcoreDomainObjectProvider /* implements DomainObjectProvider  */{
   @Override
-  public DomainObjectDescriptor createDescriptor(final Object domainObject) {
+  public Object createDescriptor(final Object domainObject) {
     boolean _matched = false;
     if (!_matched) {
       if (domainObject instanceof EClass) {
@@ -74,13 +68,5 @@ public class EcoreDomainObjectProvider implements DomainObjectProvider {
     String _plus = (_fqn + ".");
     String _name = it.getName();
     return (_plus + _name);
-  }
-  
-  public void populate(final ModelElementImpl modelElement) {
-    
-  }
-  
-  public String toString() {
-    return ToString.toString(this);
   }
 }
