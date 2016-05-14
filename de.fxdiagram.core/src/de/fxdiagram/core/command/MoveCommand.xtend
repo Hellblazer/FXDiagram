@@ -7,18 +7,20 @@ import javafx.scene.shape.LineTo
 import javafx.scene.shape.MoveTo
 import javafx.scene.shape.Path
 import javafx.util.Duration
+import javafx.scene.Node
+import de.fxdiagram.core.XNode
 
 class MoveCommand extends AbstractAnimationCommand {
 
-	XShape shape
+	Node node
 	
 	double fromX
 	double fromY
 	double toX
 	double toY
 	
-	new(XShape shape, double toX, double toY) {
-		this.shape = shape;
+	new(Node shape, double toX, double toY) {
+		this.node = shape;
 		this.fromX = shape.layoutX
 		this.fromY = shape.layoutY
 		this.toX = toX
@@ -26,7 +28,7 @@ class MoveCommand extends AbstractAnimationCommand {
 	}
 	
 	new(XShape shape, double fromX, double fromY, double toX, double toY) {
-		this.shape = shape;
+		this.node = shape;
 		this.fromX = fromX
 		this.fromY = fromY
 		this.toX = toX
@@ -34,6 +36,15 @@ class MoveCommand extends AbstractAnimationCommand {
 	}
 	
 	override createExecuteAnimation(CommandContext context) {
+		if(node instanceof XNode) {
+			fromX -= node.placementGroup.layoutX
+			fromY -= node.placementGroup.layoutY
+			node.placementGroup => [
+				layoutX = 0
+				layoutY = 0	
+			]
+			node.placementHint = null
+		}
 		createMoveTransition(fromX, fromY, toX, toY, context.executeDuration)
 	}
 	
@@ -46,14 +57,14 @@ class MoveCommand extends AbstractAnimationCommand {
 	}
 	
 	protected def createMoveTransition(double fromX, double fromY, double toX, double toY, Duration duration) {
-		if(shape.layoutX == toX && shape.layoutY == toY)
+		if(node.layoutX == toX && node.layoutY == toY)
 			return null;
 		val dummyNode = new Group => [
 			translateX = fromX
 			translateY = fromY
 		]
-		shape.layoutXProperty.bind(dummyNode.translateXProperty)
-		shape.layoutYProperty.bind(dummyNode.translateYProperty)
+		node.layoutXProperty.bind(dummyNode.translateXProperty)
+		node.layoutYProperty.bind(dummyNode.translateYProperty)
 		new PathTransition => [
 			it.node = dummyNode
 			it.duration = duration
@@ -63,7 +74,7 @@ class MoveCommand extends AbstractAnimationCommand {
 				elements += new LineTo(toX, toY)
 			]
 			onFinished = [
-				shape => [
+				node => [
 					layoutXProperty.unbind
 					layoutYProperty.unbind
 					layoutX = toX

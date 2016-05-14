@@ -52,6 +52,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Dimension2D;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -391,7 +392,7 @@ public class Layouter {
             float _ypos = shapeLayout.getYpos();
             double _y = correction.getY();
             double _minus_1 = (_ypos - _y);
-            MoveCommand _moveCommand = new MoveCommand(((XShape)xElement), _minus, _minus_1);
+            MoveCommand _moveCommand = new MoveCommand(((Node)xElement), _minus, _minus_1);
             final Procedure1<MoveCommand> _function = (MoveCommand it) -> {
               it.setExecuteDuration(duration);
             };

@@ -118,11 +118,11 @@ public class BaseClassNode<T extends Object> extends FlipNode implements INodeWi
   
   public final static String OPERATION = "operation";
   
-  private CheckBox packageBox;
+  protected CheckBox packageBox;
   
-  private CheckBox attributesBox;
+  protected CheckBox attributesBox;
   
-  private CheckBox methodsBox;
+  protected CheckBox methodsBox;
   
   private VBox contentArea;
   
@@ -290,9 +290,7 @@ public class BaseClassNode<T extends Object> extends FlipNode implements INodeWi
     };
     this.bindCheckbox(this.showMethodsProperty, this.methodsBox, this.methodCompartment, _function_2, this.inflator);
     Transition _inflateAnimation = this.inflator.getInflateAnimation();
-    if (_inflateAnimation!=null) {
-      _inflateAnimation.play();
-    }
+    _inflateAnimation.play();
     IMappedElementDescriptor<T> _domainObjectDescriptor = this.getDomainObjectDescriptor();
     LazyConnectionMappingBehavior.<T>addLazyBehavior(this, _domainObjectDescriptor);
   }

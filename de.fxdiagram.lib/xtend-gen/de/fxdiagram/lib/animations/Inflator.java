@@ -26,6 +26,7 @@ import javafx.geometry.Dimension2D;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.Side;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -311,10 +312,12 @@ public class Inflator {
           it_1.setAutoReverse(false);
           ObservableList<KeyFrame> _keyFrames = it_1.getKeyFrames();
           Duration _millis = DurationExtensions.millis(200);
-          DoubleProperty _layoutXProperty = this.host.layoutXProperty();
+          Group _placementGroup = this.host.getPlacementGroup();
+          DoubleProperty _layoutXProperty = _placementGroup.layoutXProperty();
           double _x = inflatedHostPos.getX();
           KeyValue _keyValue = new <Number>KeyValue(_layoutXProperty, Double.valueOf(_x));
-          DoubleProperty _layoutYProperty = this.host.layoutYProperty();
+          Group _placementGroup_1 = this.host.getPlacementGroup();
+          DoubleProperty _layoutYProperty = _placementGroup_1.layoutYProperty();
           double _y = inflatedHostPos.getY();
           KeyValue _keyValue_1 = new <Number>KeyValue(_layoutYProperty, Double.valueOf(_y));
           KeyFrame _keyFrame = new KeyFrame(_millis, _keyValue, _keyValue_1);
@@ -376,10 +379,12 @@ public class Inflator {
         it.setAutoReverse(false);
         ObservableList<KeyFrame> _keyFrames = it.getKeyFrames();
         Duration _millis = DurationExtensions.millis(200);
-        DoubleProperty _layoutXProperty = this.host.layoutXProperty();
+        Group _placementGroup = this.host.getPlacementGroup();
+        DoubleProperty _layoutXProperty = _placementGroup.layoutXProperty();
         double _x = deflatedHostPos.getX();
         KeyValue _keyValue = new <Number>KeyValue(_layoutXProperty, Double.valueOf(_x));
-        DoubleProperty _layoutYProperty = this.host.layoutYProperty();
+        Group _placementGroup_1 = this.host.getPlacementGroup();
+        DoubleProperty _layoutYProperty = _placementGroup_1.layoutYProperty();
         double _y = deflatedHostPos.getY();
         KeyValue _keyValue_1 = new <Number>KeyValue(_layoutYProperty, Double.valueOf(_y));
         KeyFrame _keyFrame = new KeyFrame(_millis, _keyValue, _keyValue_1);
@@ -495,7 +500,8 @@ public class Inflator {
     Point2D _xblockexpression = null;
     {
       final Dimension2D inflatedUnpadded = this.getInflatedUnpadded();
-      double _layoutX = this.host.getLayoutX();
+      Group _placementGroup = this.host.getPlacementGroup();
+      double _layoutX = _placementGroup.getLayoutX();
       double _switchResult = (double) 0;
       Side _placementHint = this.host.getPlacementHint();
       if (_placementHint != null) {
@@ -520,7 +526,8 @@ public class Inflator {
         _switchResult = 0;
       }
       double _minus_1 = (_layoutX - _switchResult);
-      double _layoutY = this.host.getLayoutY();
+      Group _placementGroup_1 = this.host.getPlacementGroup();
+      double _layoutY = _placementGroup_1.getLayoutY();
       double _switchResult_1 = (double) 0;
       Side _placementHint_1 = this.host.getPlacementHint();
       if (_placementHint_1 != null) {
@@ -553,7 +560,8 @@ public class Inflator {
     Point2D _xblockexpression = null;
     {
       final Dimension2D inflatedUnpadded = this.getInflatedUnpadded();
-      double _layoutX = this.host.getLayoutX();
+      Group _placementGroup = this.host.getPlacementGroup();
+      double _layoutX = _placementGroup.getLayoutX();
       double _switchResult = (double) 0;
       Side _placementHint = this.host.getPlacementHint();
       if (_placementHint != null) {
@@ -581,7 +589,8 @@ public class Inflator {
         _switchResult = 0;
       }
       double _plus = (_layoutX + _switchResult);
-      double _layoutY = this.host.getLayoutY();
+      Group _placementGroup_1 = this.host.getPlacementGroup();
+      double _layoutY = _placementGroup_1.getLayoutY();
       double _switchResult_1 = (double) 0;
       Side _placementHint_1 = this.host.getPlacementHint();
       if (_placementHint_1 != null) {
